@@ -1,17 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: hystrix-dashboard
+  name: zipkin-server
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: hystrix-dashboard
+        app: zipkin-server
     spec:
       containers:
-      - name: hystrix-dashboard
-        image: iancollington/hystrix-dashboard
+      - name: zipkin-server
+        image: iancollington/zipkin-server
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -23,9 +23,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: hystrix-dashboard
+  name: zipkin-server
   labels:
-    app: hystrix-dashboard
+    app: zipkin-server
 spec:
   type: LoadBalancer
   ports:
@@ -33,4 +33,4 @@ spec:
     targetPort: 8080
     protocol: TCP
   selector:
-    app: hystrix-dashboard
+    app: zipkin-server
