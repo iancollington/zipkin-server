@@ -1,0 +1,12 @@
+<assembly>
+    <id>zipkin-server-docker-maven</id>
+    <dependencySets>
+        <dependencySet>
+            <includes>
+                <include>com.iancollington:zipkin-server</include>
+            </includes>
+            <outputDirectory>/app/dist</outputDirectory>
+            <outputFileNameMapping>zipkin-server.jar</outputFileNameMapping>
+        </dependencySet>
+    </dependencySets>
+</assembly>
