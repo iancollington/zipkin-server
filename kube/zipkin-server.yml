@@ -27,10 +27,11 @@ metadata:
   labels:
     app: zipkin-server
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 80
     targetPort: 8080
+    nodePort: 31004
     protocol: TCP
   selector:
     app: zipkin-server
